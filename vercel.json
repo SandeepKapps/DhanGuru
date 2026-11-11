@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/silkpay/:path*",
+      "destination": "/api/silkpay?path=/:path*"
+    },
+    {
+      "source": "/api/payin/:path*",
+      "destination": "/api/payin?path=/:path*"
+    },
+    {
+      "source": "/api/silkpay",
+      "destination": "/api/silkpay"
+    },
+    {
+      "source": "/api/payin",
+      "destination": "/api/silkpay"
+    },
+    {
+      "source": "/sir",
+      "destination": "/sir.html"
+    },
+    {
+      "source": "/((?!api/|silkpay\\.php|payin\\.php|api\\.php|sir\\.html|404\\.html).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
