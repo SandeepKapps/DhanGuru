@@ -1,7 +1,15 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Do not rewrite direct PHP API calls or existing files
+  RewriteCond %{REQUEST_URI} \.(php|js|css|png|jpg|jpeg|svg|ico|json)$ [NC]
+  RewriteRule ^ - [L]
+
+  # Allow direct access to sir and 404
+  RewriteRule ^sir/?$ sir.html [L]
   RewriteRule ^index\.html$ - [L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
